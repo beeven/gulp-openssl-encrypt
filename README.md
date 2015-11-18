@@ -1,5 +1,8 @@
 gulp-openssl-encrypt
-========
+===
+
+[![Build Status](https://travis-ci.org/beeven/gulp-openssl-encrypt.svg)](https://travis-ci.org/beeven/gulp-openssl-encrypt)
+[![Dependencies](https://david-dm.org/beeven/gulp-openssl-encrypt.svg)](https://david-dm.org/beeven/gulp-openssl-encrypt.svg)
 
 > A encrypt/decrypt plugin for gulp 3, generating files that can be encrypt or decrypt by openssl/travis
 
