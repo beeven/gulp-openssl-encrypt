@@ -1,0 +1,6 @@
+{
+    "globalstrict": true,
+    "node": true,
+    "esnext": true,
+    "jasmine": true
+}
