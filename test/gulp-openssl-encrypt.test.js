@@ -3,7 +3,7 @@
 var should = require("should"),
     fs = require("fs");
 
-var gulpCrypto = require("../"),
+var gulpOpensslEncrypt = require("../"),
     gutil = require("gulp-util");
 
 describe("gulp-openssl-encrypt",function(){
@@ -22,7 +22,7 @@ describe("gulp-openssl-encrypt",function(){
                 base: 'test/',
                 contents: fs.readFileSync('test/encrypted.openssl.txt')
             });
-            var stream = gulpCrypto({
+            var stream = gulpOpensslEncrypt({
                 password:'abcdefg',
                 format: 'openssl',
                 algorithm: 'aes-256-cbc',
@@ -46,7 +46,7 @@ describe("gulp-openssl-encrypt",function(){
                 base: 'test/',
                 contents: fs.readFileSync('test/decrypted.txt')
             });
-            var stream = gulpCrypto({
+            var stream = gulpOpensslEncrypt({
                 password:'abcdefg',
                 format: 'openssl',
                 algorithm: 'aes-256-cbc',

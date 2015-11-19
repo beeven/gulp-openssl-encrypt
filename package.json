@@ -1,6 +1,6 @@
 {
   "name": "gulp-openssl-encrypt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Encrypt or decrypt files in raw or openssl format.",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,6 @@
     "through2": "^2.0.0"
   },
   "devDependencies": {
-    "gulp-util": "^3.0.7",
     "mocha": "^2.3.4",
     "should": "^7.1.1"
   }
