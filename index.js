@@ -27,11 +27,9 @@ module.exports = function(options){
         } else if(file.isBuffer()) {
             if(options.decrypt) {
                 if(options.format === "openssl") {
-
                     if(file.contents.length < 16 || file.contents.slice(0,8).toString() !== 'Salted__') {
-
                         this.emit('error', new PluginError(PLUGIN_NAME,'This file is not an openssl enrypted file'));
-                        return callback("This file is not an openssl enrypted file",null);
+                        return callback();
                     }
 
                     let salt = file.contents.slice(8,16);
@@ -44,12 +42,15 @@ module.exports = function(options){
                     let decipher = crypto.createDecipheriv(options.algorithm, key, iv);
                     let chunks = [];
 
-                    chunks.push(decipher.update(cryptotext));
-
-                    chunks.push(decipher.final());
-
-                    file.contents = Buffer.concat(chunks);
-                    this.push(file);
+                    try {
+                        chunks.push(decipher.update(cryptotext));
+                        chunks.push(decipher.final());
+                        file.contents = Buffer.concat(chunks);
+                        this.push(file);
+                    }
+                    catch(e) {
+                        this.emit("error",new PluginError(PLUGIN_NAME,"Bad decrypt. Password is not correct."));
+                    }
                     return callback();
                 }
                 else {
