@@ -1,12 +1,18 @@
 language: node_js
 node_js:
-  - "4.2.1"
+- 4.2.1
 os:
-  - linux
-
+- linux
 before_script:
-  - npm install -g gulp
-  - npm install -g mocha
-
+- npm install -g gulp
+- npm install -g mocha
 script:
-  - npm test
+- npm test
+deploy:
+  provider: npm
+  email: beeven@hotmail.com
+  api_key:
+    secure: GjUeursDgkI07EMC2MDjpiJLNFZdIBiEOEESCbwkyPF+UD3i/UUQUqlLXtuhQYfDpNno/HXZHGjGEfhSmweZYucf3dbq6hvhkVncPaiYc8xrF7g0iBMHh3A64G75wz85xoJ4qwBbxQPxScJ+5EC/dln2RCLB2ovm2qnvoIv5mbi1tHGgyadlP11MOmDz7L9vNj//JK3Egg0mR7e/Bg0kuTIuKED7zTYV6fE/UOryDDM3YDnw3gVs6jKrPkdbGyBlR13ptQzcKky3PIeh8Nk4A/2r0p4nVUcJcqmjUaRAK8OukFN5zY/QI68jE3jBW9fRbVFH40ObbuSVTnuIbRFFy3fgv4TsVmMp7Injrd5sTpoNSk842qFgN3UqWcsIjtpyu2DWqpPIPZftmynasEtX2cSGack040N7SR1rpzNxnSK7GeHN0ua+q5/SuQ980tdjDm9V1sJNR7XumpnHu8Fm2rg0LmgXJRUXiLgpnIcxLqe/9IEDReFtbwoTiKoqtgb+XhuSJ/z0lzRSrijkwhFaqhBmH74KkSXnaY0Jfs3exKTU8pfCQuSIN7InZqlFSJSVJB6nJ2KAfGbxh2QcwWchVPzUkuMqBf7admUfZSFYOdu7G7LvzfFCJQuLTiNY/zRAorgAXasjVAd9gzhQa+Dh8QZeLtQE2+yCkZuTCK9Wo3g=
+  on:
+    tags: true
+    repo: beeven/gulp-openssl-encrypt
